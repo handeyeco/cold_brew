@@ -7,6 +7,7 @@ class Recipe {
   private $coffee_pounds;
   private $water_gallons;
   private $rating;
+  private $created;
   private $id;
 
   function __construct($brand_id, $blend_id, $coffee_pounds, $water_gallons, $rating, $description, $id = null) {
@@ -16,6 +17,7 @@ class Recipe {
     $this->water_gallons  = (float) $water_gallons;
     $this->rating         = (int) $rating;
     $this->description    = (string) $description;
+    $this->created        = time();
     $this->id             = (int) $id;
   }
 
@@ -57,6 +59,10 @@ class Recipe {
 
   function getRating() {
     return $this->rating;
+  }
+
+  function getCreated() {
+    return $this->created;
   }
 
   function getId() {

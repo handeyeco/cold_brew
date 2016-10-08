@@ -3,13 +3,13 @@
 class Blend {
 
   private $blend;
-  private $brand;
+  private $brand_id;
   private $id;
 
-  function __construct($blend, $brand, $id = null) {
-    $this->blend  = (string) $blend;
-    $this->brand  = (int) $brand;
-    $this->id     = (int) $id;
+  function __construct($blend, $brand_id, $id = null) {
+    $this->blend      = (string) $blend;
+    $this->brand_id   = (int) $brand_id;
+    $this->id         = (int) $id;
   }
 
   function setBlend($new_blend) {
@@ -20,12 +20,12 @@ class Blend {
     return $this->blend;
   }
 
-  function setBrand($new_brand) {
-    $this->brand = (int) $new_brand;
+  function setBrandId($new_id) {
+    $this->brand_id = (int) $new_id;
   }
 
-  function getBrand() {
-    return $this->brand;
+  function getBrandId() {
+    return $this->brand_id;
   }
 
   function getId() {
