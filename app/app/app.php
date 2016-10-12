@@ -2,6 +2,10 @@
 
 require_once __DIR__."/../../vendor/autoload.php";
 
+require_once __DIR__."/../src/Recipe.php";
+require_once __DIR__."/../src/Brand.php";
+require_once __DIR__."/../src/Blend.php";
+
 $app = new Silex\Application();
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
