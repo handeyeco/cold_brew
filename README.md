@@ -7,6 +7,37 @@ Building a full-stack Cold Brew Journal using PHP and Silex for my final Epicodu
 
 ##Takeaways
 
+###phpDoc Example
+
+I want this project to be documented nicely. Looking into phpDocumentor.
+
+```PHP
+/**
+ * Calculates sum of squares of an array
+ *
+ * Loops over each element in the array, squares it, and adds it to
+ * total. Returns total.
+ *
+ * This function can also be implemented using array_reduce();
+ *
+ * @param array $arr
+ * @return int
+ * @throws Exception If element in array is not an integer
+ */
+function sumOfSquares($arr) {
+    $total = 0;
+    foreach ($arr as $val) {
+        if (!is_int($val)) {
+            throw new Exception("Element is not an integer!");
+        }
+        $total += $val * $val;
+    }
+    return $total;
+}
+```
+
+Example from [Sitepoint](https://www.sitepoint.com/introduction-to-phpdoc/).
+
 ###Twig Partials
 
 ```HTML

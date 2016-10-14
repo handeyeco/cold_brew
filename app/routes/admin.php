@@ -10,6 +10,4 @@ $admin->get('/', function () use ($app) {
 
 return $admin;
 
-
-
 ?>
