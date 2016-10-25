@@ -3,8 +3,9 @@
 $blends = $app['controllers_factory'];
 
 $blends->get('/', function () use ($app) {
-  return $app['twig']->render("index.html.twig", array(
-    "pageTitle" => "Blends"
+  return $app['twig']->render("blends.html.twig", array(
+    "pageTitle" => "Blends",
+    "blends" => Blend::getAll()
   ));
 });
 

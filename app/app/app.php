@@ -6,6 +6,8 @@ require_once __DIR__."/../src/Recipe.php";
 require_once __DIR__."/../src/Brand.php";
 require_once __DIR__."/../src/Blend.php";
 
+require_once __DIR__."/../private/db_login.php";
+
 $app = new Silex\Application();
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% include '/partials/template/head.html.twig' %}
+</head>
+
+<body>
+
+  {% include '/partials/content/navbar.html.twig' %}
+
+
+  {% if brands is not empty %}
+    <h1>Brands</h1>
+
+    <ul>
+      {% for brand in brands %}
+        <li><a href="/brand/{{ brand.id }}">{{ brand.brand }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h1>No brands found.</h1>
+  {% endif %}
+
+  {% include '/partials/template/footer.html.twig' %}
+
+</body>
+</html>
