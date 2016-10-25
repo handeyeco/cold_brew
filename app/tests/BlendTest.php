@@ -20,6 +20,12 @@ class BlendTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals("Andes Mountain Blend", $blend->getBlend());
   }
 
+  function test_getBrandId () {
+    $blend = new Blend("Andes Mountain Blend", 1);
+
+    $this->assertEquals(1, $blend->getBrandId());
+  }
+
   function test_save() {
     $blend = new Blend("Andes Mountain Blend", 1);
 

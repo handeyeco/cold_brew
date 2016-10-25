@@ -12,11 +12,24 @@
   {% if recipes is not empty %}
     <h1>Recipes</h1>
 
-    <ul>
-      {% for recipe in recipes %}
-        <li><a href="/recipe/{{ recipe.id }}">{{ recipe.description }}</a></li>
-      {% endfor %}
-    </ul>
+    {% for recipe in recipes %}
+      <div class="recipe-list-item">
+        <h2><a href="/recipe/{{ recipe.getId }}">{{ recipe.getCreated }}</a></h2>
+        <p>{{ recipe.getRating }}/5</p>
+        <ul>
+          <li>
+            {{ recipe.getCoffeePounds }} pound{% if recipe.getCoffeePounds != 1 %}s{% endif %}
+            {% for blend in blends %}
+              {% if blend.getId == recipe.getBlendId %}
+                <a href="/blend/{{ blend.getId }}">{{ blend.getBlend }}</a>
+              {% endif %}
+            {% endfor %}
+          </li>
+          <li>{{ recipe.getWaterGallons }} gallon purified water</li>
+        </ul>
+      </div>
+    {% endfor %}
+
   {% else %}
     <h1>No recipes found.</h1>
   {% endif %}

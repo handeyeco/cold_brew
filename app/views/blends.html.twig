@@ -14,7 +14,14 @@
 
     <ul>
       {% for blend in blends %}
-        <li><a href="/blend/{{ blend.id }}">{{ blend.blend }}</a></li>
+        <li>
+          <a href="/blend/{{ blend.getId }}">{{ blend.getBlend }}</a>
+          {% for brand in brands %}
+            {% if brand.getId == blend.getBrandId %}
+              (<a href="/brand/{{ brand.getId }}">{{ brand.getBrand }}</a>)
+            {% endif %}
+          {% endfor %}
+        </li>
       {% endfor %}
     </ul>
   {% else %}
