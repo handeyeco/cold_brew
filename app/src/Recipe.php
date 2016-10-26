@@ -93,7 +93,6 @@ class Recipe {
     $description    = $this->getDescription();
     $created        = time();
 
-
     $GLOBALS['DB']->exec("INSERT INTO
       recipes (brand_id, blend_id, coffee_pounds, water_gallons, rating, description, created)
       VALUES ($brand_id, $blend_id, $coffee_pounds, $water_gallons, $rating, '$description', $created)");
@@ -128,6 +127,27 @@ class Recipe {
     }
 
     return $result;
+  }
+
+  static function getById($id) {
+    $query = $GLOBALS['DB']->query("SELECT * FROM recipes WHERE id=$id");
+    $result = array();
+
+    foreach ($query as $recipe) {
+      $brand_id       = $recipe['brand_id'];
+      $blend_id       = $recipe['blend_id'];
+      $coffee_pounds  = $recipe['coffee_pounds'];
+      $water_gallons  = $recipe['water_gallons'];
+      $rating         = $recipe['rating'];
+      $description    = $recipe['description'];
+      $created        = $recipe['created'];
+      $id             = $recipe['id'];
+
+      $new_recipe = new Recipe($brand_id, $blend_id, $coffee_pounds, $water_gallons, $rating, $description, $created, $id);
+      array_push($result, $new_recipe);
+    }
+
+    return $result[0];
   }
 
   /**
